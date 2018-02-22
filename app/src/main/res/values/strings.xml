@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Review</string>
+    <string name="app_name">EES 2018</string>
     <string name="session">Session Number: </string>
     <string name="paper">Paper Number: </string>
     <string name="comment">Comment: </string>
@@ -10,4 +10,46 @@
     <string name="session_hint">1/2/3</string>
     <string name="paper_hint">1/2/3/4/5</string>
     <string name="does_nothing">deadmou5 is the best</string>
+    <string name="ees">Electrical Engineering Symposium 2018</string>
+    <string name="student">Student</string>
+    <string name="faculty">Faculty</string>
+    <string name="select">You are a:</string>
+    <string name="type">TYPE</string>
+    <string name="credits">Developed by Institute Mobile Operations</string>
+
+    <string name="ses1">Session 1</string>
+    <string name="ses2">Session 2</string>
+    <string name="ses3">Session 3</string>
+
+    <string name="ses1_sp1">Gopal Krishna Kamath M</string>
+    <string name="ses1_t1">How does driver behavior affect traffic flow?</string>
+    <string name="ses1_sp2">Imon Mondal</string>
+    <string name="ses1_t2">Integrated circuit for time-scaling of analog pulses</string>
+    <string name="ses1_sp3">Noel Prashant R</string>
+    <string name="ses1_t3">Ultrathin nanoporous silicon membranes for sensing biomolecules</string>
+    <string name="ses1_sp4">Anvar A</string>
+    <string name="ses1_t4">Contact resistance of metal semiconductor nanowire junctions</string>
+
+
+    <string name="ses2_sp1">Bhargav Somepalli</string>
+    <string name="ses2_t1">Monitoring strain of large structures using nerves of glass</string>
+    <string name="ses2_sp2">Akshit Saradagi</string>
+    <string name="ses2_t2">Making autonomous mobile robots cooperate</string>
+    <string name="ses2_sp3">Ambili Mohan</string>
+    <string name="ses2_t3">Miniaturised blood analyser for on-the-spot diagnosis</string>
+    <string name="ses2_sp4">Ramesh K Gupta</string>
+    <string name="ses2_t4">Wideband silicon photonics switches</string>
+    <string name="ses2_sp5">Nikhil K S</string>
+    <string name="ses2_t5">Improving the on-state breakdown voltage of power MOS transistors</string>
+
+    <string name="ses3_sp1">Srijith K</string>
+    <string name="ses3_t1">Glass stethescopes for power transformers</string>
+    <string name="ses3_sp2">Shree Krishnamoorthy</string>
+    <string name="ses3_t2">Tracking resonances in a pulsed fibre laser</string>
+    <string name="ses3_sp3">Jayesh M K</string>
+    <string name="ses3_t3">Vocal tract modelling: A speech processing perspective</string>
+    <string name="ses3_sp4">Sumi R</string>
+    <string name="ses3_t4">Ripple-free and sharp edge wavelength filters with silicon waveguides</string>
+    <string name="ses3_sp5">Durgesh Singh</string>
+    <string name="ses3_t5">Robust and responsive cloud computing through optimal resource scheduling</string>
 </resources>
