@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:fillViewport="true"
     android:scrollbarStyle="insideOverlay">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -13,21 +19,19 @@
             android:id="@+id/ees_heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="casual"
             android:gravity="center"
             android:padding="8dp"
             android:text="@string/ees"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="40sp" />
 
+
         <TextView
             android:id="@+id/select"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/activity_horizontal_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:fontFamily="casual"
             android:text="@string/select"
             android:textColor="@color/colorPrimaryDark" />
 
@@ -58,6 +62,14 @@
                 android:text="@string/faculty" />
         </RadioGroup>
 
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/icon" />
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -67,9 +79,11 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:fontFamily="casual"
             android:gravity="center"
             android:text="@string/credits"
             android:textColor="@color/colorPrimary"
+
             android:textSize="20sp" />
 
 

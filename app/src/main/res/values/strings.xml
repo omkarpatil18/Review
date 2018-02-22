@@ -10,7 +10,7 @@
     <string name="session_hint">1/2/3</string>
     <string name="paper_hint">1/2/3/4/5</string>
     <string name="does_nothing">deadmou5 is the best</string>
-    <string name="ees">Electrical Engineering Symposium 2018</string>
+    <string name="ees">Electrical\nEngineering\nSymposium 2018</string>
     <string name="student">Student</string>
     <string name="faculty">Faculty</string>
     <string name="select">You are a:</string>
