@@ -41,8 +41,7 @@
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                />
+                android:paddingStart="10dp" />
 
         </LinearLayout>
 
@@ -70,17 +69,16 @@
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                />
+                android:paddingStart="10dp" />
 
         </LinearLayout>
 
 
         <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"
-        android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -100,8 +98,7 @@
                 android:paddingEnd="10dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="10dp"
-                android:paddingStart="10dp"
-                />
+                android:paddingStart="10dp" />
 
         </LinearLayout>
 
@@ -110,11 +107,9 @@
             android:id="@+id/save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:layout_marginTop="32dp"
             android:background="@color/colorPrimary"
-            android:text="@string/save"
-            />
-
+            android:text="@string/save" />
 
 
     </LinearLayout>
