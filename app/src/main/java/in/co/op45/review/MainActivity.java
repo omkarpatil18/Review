@@ -25,6 +25,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 
 import java.io.ByteArrayInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -201,9 +203,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (session.equals("-1") || score.equals("") || speaker.equalsIgnoreCase("-1"))
             makeSnackbar("Empty field");
         else if (!(Integer.parseInt(score)>0 && Integer.parseInt(score)<11))  makeSnackbar("Overall score should be between 1 and 10");
+        else if (Utils.exists(MainActivity.this, session, paper)) makeSnackbar("You have already reviewed this");
         else {
 
-            dialog.setMessage("Saving your review.");
+            dialog.setMessage("Saving your review...");
             dialog.setCancelable(false);
             dialog.show();
 
@@ -231,6 +234,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 String status = reader.nextString();
                                 if (status.equals("1")) {
                                     makeSnackbar("Review saved");
+                                    Utils.writeToFile(MainActivity.this, session, paper, score);
+                                    et_paper.setText("");
                                     et_score.setText("");
 
 
