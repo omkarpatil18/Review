@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Review</string>
+    <string name="session">Session Number: </string>
+    <string name="paper">Paper Number: </string>
+    <string name="comment">Comment: </string>
+    <string name="score">Overall Score: </string>
+    <string name="roll">Roll Number: </string>
+    <string name="save">Save </string>
+    <string name="score_hint">1 - 10</string>
+    <string name="session_hint">1/2/3</string>
+    <string name="paper_hint">1/2/3/4/5</string>
+    <string name="does_nothing">deadmou5 is the best</string>
+</resources>
