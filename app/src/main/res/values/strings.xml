@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EES 2018</string>
     <string name="session">Session Number: </string>
-    <string name="paper">Paper Number: </string>
+    <string name="paper">Speaker </string>
     <string name="comment">Comment: </string>
     <string name="score">Overall Score: </string>
     <string name="roll">Roll Number: </string>
@@ -52,4 +52,10 @@
     <string name="ses3_t4">Ripple-free and sharp edge wavelength filters with silicon waveguides</string>
     <string name="ses3_sp5">Durgesh Singh</string>
     <string name="ses3_t5">Robust and responsive cloud computing through optimal resource scheduling</string>
+
+    <string-array name="sessions_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
 </resources>

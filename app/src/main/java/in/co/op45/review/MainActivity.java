@@ -4,14 +4,20 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -27,17 +33,19 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     SharedPreferences sharedPref;
     String url = "https://students.iitm.ac.in/studentsapp/put_review.php";
-    private EditText et_session;
-    private EditText et_paper;
+    String sess = "-1", speaker = "-1";
     private EditText et_score;
     private Button bn_save;
     private InputStream stream;
-    private NestedScrollView scrollview;
+    private CoordinatorLayout coordinator;
     private ProgressDialog dialog;
+    private RadioGroup rg_speaker;
+    private RadioButton rb_sp1, rb_sp2, rb_sp3, rb_sp4, rb_sp5;
+    private TextView tv1, tv2, tv3, tv4, tv5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,35 +54,152 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         sharedPref =this.getPreferences(Context.MODE_PRIVATE);
 
-        et_session = findViewById(R.id.session);
-        et_paper =  findViewById(R.id.paper);
         et_score = findViewById(R.id.score);
         bn_save= findViewById(R.id.save);
-        scrollview = findViewById(R.id.scroll);
-
-
-/*
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.saved_high_score), et_rollno);
-        editor.apply();
-*/
-
-
+        coordinator = findViewById(R.id.coordinator);
         dialog = new ProgressDialog(this);
         bn_save.setOnClickListener(this);
+        rg_speaker = findViewById(R.id.rg_speaker);
+
+        rb_sp1 = findViewById(R.id.radio_sp_1);
+        rb_sp2 = findViewById(R.id.radio_sp_2);
+        rb_sp3 = findViewById(R.id.radio_sp_3);
+        rb_sp4 = findViewById(R.id.radio_sp_4);
+        rb_sp5 = findViewById(R.id.radio_sp_5);
+
+        tv1 = findViewById(R.id.topic_1);
+        tv2 = findViewById(R.id.topic_2);
+        tv3 = findViewById(R.id.topic_3);
+        tv4 = findViewById(R.id.topic_4);
+        tv5 = findViewById(R.id.topic_5);
+
+        Spinner spinner = findViewById(R.id.session_spinner);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.sessions_array, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radio_sp_1:
+                if (checked) {
+                    // Pirates are the best
+                    speaker = "1";
+                    break;
+                }
+            case R.id.radio_sp_2:
+                if (checked) {
+                    // Pirates are the best
+                    speaker = "2";
+                    break;
+                }
+            case R.id.radio_sp_3:
+                if (checked) {
+                    // Pirates are the best
+                    speaker = "3";
+                    break;
+                }
+            case R.id.radio_sp_4:
+                if (checked) {
+                    // Pirates are the best
+                    speaker = "4";
+                    break;
+                }
+            case R.id.radio_sp_5:
+                if (checked) {
+                    // Pirates are the best
+                    speaker = "5";
+                    break;
+                }
+        }
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        String session = parent.getItemAtPosition(pos).toString();
+        if (session.equalsIgnoreCase("1")) {
+            rb_sp1.setText(R.string.ses1_sp1);
+            rb_sp2.setText(R.string.ses1_sp2);
+            rb_sp3.setText(R.string.ses1_sp3);
+            rb_sp4.setText(R.string.ses1_sp4);
+            rb_sp5.setVisibility(View.GONE);
+            rb_sp5.setClickable(false);
+
+            tv1.setText(R.string.ses1_t1);
+            tv2.setText(R.string.ses1_t2);
+            tv3.setText(R.string.ses1_t3);
+            tv4.setText(R.string.ses1_t4);
+            tv5.setVisibility(View.GONE);
+
+            sess = "1";
+        } else if (session.equalsIgnoreCase("2")) {
+
+            rb_sp5.setVisibility(View.VISIBLE);
+            rb_sp5.setClickable(true);
+            tv5.setVisibility(View.VISIBLE);
+
+            rb_sp1.setText(R.string.ses2_sp1);
+            rb_sp2.setText(R.string.ses2_sp2);
+            rb_sp3.setText(R.string.ses2_sp3);
+            rb_sp4.setText(R.string.ses2_sp4);
+            rb_sp5.setText(R.string.ses2_sp5);
+
+            tv1.setText(R.string.ses2_t1);
+            tv2.setText(R.string.ses2_t2);
+            tv3.setText(R.string.ses2_t3);
+            tv4.setText(R.string.ses2_t4);
+            tv5.setText(R.string.ses2_t5);
+
+            sess = "2";
+        } else if (session.equalsIgnoreCase("3")) {
+
+            rb_sp5.setVisibility(View.VISIBLE);
+            rb_sp5.setClickable(true);
+            tv5.setVisibility(View.VISIBLE);
+
+            rb_sp1.setText(R.string.ses3_sp1);
+            rb_sp2.setText(R.string.ses3_sp2);
+            rb_sp3.setText(R.string.ses3_sp3);
+            rb_sp4.setText(R.string.ses3_sp4);
+            rb_sp5.setText(R.string.ses3_sp5);
+
+            tv1.setText(R.string.ses3_t1);
+            tv2.setText(R.string.ses3_t2);
+            tv3.setText(R.string.ses3_t3);
+            tv4.setText(R.string.ses3_t4);
+            tv5.setText(R.string.ses3_t5);
+
+            sess = "3";
+        }
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+        rg_speaker.setVisibility(View.GONE);
+        rg_speaker.setClickable(false);
+    }
+
 
     @Override
     public void onClick(View view) {
 
-        final String session = et_session.getText().toString();
-        final String paper = et_paper.getText().toString();
+        final String session = sess;
         final String score = et_score.getText().toString();
 
-        if (session.equals("") || paper.equals("") || score.equals("")) makeSnackbar("Empty field");
-        else if (!(Integer.parseInt(session)==1 || Integer.parseInt(session)==2 || Integer.parseInt(session)==3))  makeSnackbar("Incorrect session number");
-        else if (!(Integer.parseInt(paper)>0 && Integer.parseInt(paper)<6))  makeSnackbar("Incorrect paper number");
+        if (session.equals("-1") || score.equals("") || speaker.equalsIgnoreCase("-1"))
+            makeSnackbar("Empty field");
         else if (!(Integer.parseInt(score)>0 && Integer.parseInt(score)<11))  makeSnackbar("Overall score should be between 1 and 10");
         else {
 
@@ -106,9 +231,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 String status = reader.nextString();
                                 if (status.equals("1")) {
                                     makeSnackbar("Review saved");
-                                    et_paper.setText("");
                                     et_score.setText("");
-                                    et_session.setText("");
+
 
                                     if (dialog.isShowing()) {
                                         dialog.dismiss();
@@ -166,7 +290,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Map<String, String> params = new HashMap<>();
 
                     params.put("SESSION", session);
-                    params.put("PAPER", paper);
+                    params.put("PAPER", speaker);
                     params.put("SCORE", score);
                     params.put("TYPE", "" + type);
                     return params;
@@ -180,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void makeSnackbar(String msg) {
 
         Snackbar snackbar = Snackbar
-                .make(scrollview, msg, Snackbar.LENGTH_LONG);
+                .make(coordinator, msg, Snackbar.LENGTH_LONG);
         snackbar.show();
     }
 }
